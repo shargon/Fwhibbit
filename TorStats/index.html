@@ -27,11 +27,11 @@ top: 100px;
 </style>
 <h1></h1>
 <ul class="legend">
- <li><a class="lclick" href="" onclick='javascript:transition(search(countries,"Estados Unidos"))'>Estados Unidos</a></li>
- <li><a class="lclick" href="" onclick='javascript:transition(search(countries,"Rusia"))'>Rusia</a></li>
- <li><a class="lclick" href="" onclick='javascript:transition(search(countries,"Francia"))'>Francia</a></li>
- <li><a class="lclick" href="" onclick='javascript:transition(search(countries,"Holanda"))'>Holanda</a></li>
- <li><a class="lclick" href="" onclick='javascript:transition(search(countries,"Japón"))'>Japón</a></li>
+ <li><a class="lclick" href="#" onclick='javascript:transition(search(countries,"Estados Unidos"))'>Estados Unidos</a></li>
+ <li><a class="lclick" href="#" onclick='javascript:transition(search(countries,"Rusia"))'>Rusia</a></li>
+ <li><a class="lclick" href="#" onclick='javascript:transition(search(countries,"Francia"))'>Francia</a></li>
+ <li><a class="lclick" href="#" onclick='javascript:transition(search(countries,"Holanda"))'>Holanda</a></li>
+ <li><a class="lclick" href="#" onclick='javascript:transition(search(countries,"Japón"))'>Japón</a></li>
 </ul>
 
 <script src="d3.v3.min.js"></script>
@@ -90,7 +90,6 @@ function search(countries,name)
    if (countries[i].name==name) return countries[i];
     return undefined;
 }
-var done=false;
 function ready(error, world, names) 
 {
   if (error) throw error;
@@ -109,11 +108,7 @@ function ready(error, world, names)
   }).sort(function(a, b) {
     return a.name.localeCompare(b.name);
   });
-	if(!done)
-	{
-		done=true;
-  		transition(search(countries,"Estados Unidos"));
-	}
+	transition(search(countries,"Estados Unidos"));
 }
 
 d3.select(self.frameElement).style("height", height + "px");
