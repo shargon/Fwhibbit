@@ -12,15 +12,19 @@ h1
   text-align: center;
   width: 360px;
 }
+#lclick
+{
+ cursor:pointer
+}
 
 </style>
 <h1></h1>
 <ul>
- <li><span onclick='javascript:transition(search(countries,"United States"))'>Estados Unidos</span></li>
- <li><span onclick='javascript:transition(search(countries,"Rusia"))'>Rusia</span></li>
- <li><span onclick='javascript:transition(search(countries,"France"))'>Francia</span></li>
- <li><span onclick='javascript:transition(search(countries,"Holand"))'>Holanda</span></li>
- <li><span onclick='javascript:transition(search(countries,"Japan"))'>Japón</span></li>
+ <li><span class="lclick" onclick='javascript:transition(search(countries,"Estados Unidos"))'>Estados Unidos</span></li>
+ <li><span class="lclick" onclick='javascript:transition(search(countries,"Rusia"))'>Rusia</span></li>
+ <li><span class="lclick" onclick='javascript:transition(search(countries,"Francia"))'>Francia</span></li>
+ <li><span class="lclick" onclick='javascript:transition(search(countries,"Holanda"))'>Holanda</span></li>
+ <li><span class="lclick" onclick='javascript:transition(search(countries,"Japón"))'>Japón</span></li>
 </ul>
 
 <script src="d3.v3.min.js"></script>
