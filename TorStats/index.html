@@ -1,5 +1,6 @@
 
 <!DOCTYPE html>
+<title>Tor top 5</title>
 <meta charset="utf-8">
 <style>
 
@@ -12,14 +13,19 @@ h1
   text-align: center;
   width: 360px;
 }
-#lclick
+.legend
+{
+style="position: absolute;
+left: 350px;"
+}
+.lclick
 {
  cursor:pointer
 }
 
 </style>
 <h1></h1>
-<ul>
+<ul class="legend">
  <li><span class="lclick" onclick='javascript:transition(search(countries,"Estados Unidos"))'>Estados Unidos</span></li>
  <li><span class="lclick" onclick='javascript:transition(search(countries,"Rusia"))'>Rusia</span></li>
  <li><span class="lclick" onclick='javascript:transition(search(countries,"Francia"))'>Francia</span></li>
