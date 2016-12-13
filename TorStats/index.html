@@ -90,6 +90,7 @@ function search(countries,name)
    if (countries[i].name==name) return countries[i];
     return undefined;
 }
+var done=false;
 function ready(error, world, names) 
 {
   if (error) throw error;
@@ -108,8 +109,11 @@ function ready(error, world, names)
   }).sort(function(a, b) {
     return a.name.localeCompare(b.name);
   });
-
-  transition(search(countries,"Estados Unidos"));
+	if(!done)
+	{
+		done=true;
+  		transition(search(countries,"Estados Unidos"));
+	}
 }
 
 d3.select(self.frameElement).style("height", height + "px");
