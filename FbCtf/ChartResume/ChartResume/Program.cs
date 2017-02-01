@@ -158,6 +158,7 @@ namespace ChartResume
                                             };
 
                                             msg.To.Add(email);
+                                            //msg.Bcc.Add("xxxxx@xxxxx.com");
 
                                             ms.Seek(0, SeekOrigin.Begin);
                                             msg.Attachments.Add(new Attachment(ms, "report.png", "image/png"));
@@ -179,6 +180,8 @@ namespace ChartResume
 
             File.WriteAllText(DoneFile, JsonConvert.SerializeObject(sended));
             if (errorSend.Count > 0) Console.WriteLine(string.Join(",", errorSend));
+
+            Console.WriteLine("END PROCESS, PRESS ENTER TO CONTINUE");
             Console.ReadLine();
         }
     }
