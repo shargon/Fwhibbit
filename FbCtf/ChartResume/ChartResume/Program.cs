@@ -63,7 +63,7 @@ namespace ChartResume
                     com.Parameters.Clear();
 
                     // Fetch users & scores
-                    using (DataTable dt = SqlHelper.SelectDataTable(com, "SELECT user_id,name,email,user_points from vteams order by user_points DESC"))
+                    using (DataTable dt = SqlHelper.SelectDataTable(com, "SELECT user_id,name,email,user_points from vteams order by user_points DESC,name ASC"))
                     using (DataTable dtscores = SqlHelper.SelectDataTable(com, "SELECT user_id, ts, points from vscores"))
                     {
                         int maxScore;
@@ -157,6 +157,7 @@ namespace ChartResume
                                                 IsBodyHtml = false,
                                             };
 
+                                            //email = "xxxxx@xxxxx.com";
                                             msg.To.Add(email);
                                             //msg.Bcc.Add("xxxxx@xxxxx.com");
 
