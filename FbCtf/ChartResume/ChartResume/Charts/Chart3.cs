@@ -11,8 +11,26 @@ namespace ChartResume.Charts
         public static string GetChart(int userId, string user, MySqlCommand com, DataTable scores, Score[] global, int max)
         {
             max += 500;
-            string total = string.Join(",", global.Select(u => u.ToString(max)));
-            string tiene = string.Join(",", GetUserScore(userId, scores).Select(u => u.ToString(max)));
+            List<Score> lg = new List<Score>(global);
+            List<Score> lc= new List<Score>(GetUserScore(userId, scores));
+
+            int lgg = -1, lcc = -1;
+            for (int x = 0; x < lg.Count; x++)
+            {
+                if (lgg == lg[x].Points && lcc == lc[x].Points)
+                {
+                    lg.RemoveAt(x);
+                    lc.RemoveAt(x);
+                    x--;
+                    continue;
+                }
+
+                lgg = lg[x].Points;
+                lcc = lc[x].Points;
+            }
+
+            string total = string.Join(",", lg.Select(u => u.ToString(max)));
+            string tiene = string.Join(",", lc.Select(u => u.ToString(max)));
 
             return "https://chart.googleapis.com/chart?cht=lc&chs=780x280&chco=3D7930,ff0000&chls=2%7C2,10&chg=14.3,-1,1,1&chxt=y&chxr=0,0," + max.ToString() + "&chd=t:" +
                 tiene + "|" + total

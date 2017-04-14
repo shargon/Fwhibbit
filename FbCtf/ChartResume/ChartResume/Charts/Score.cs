@@ -19,5 +19,9 @@ namespace ChartResume.Charts
         {
             return MathHelper.Percentage(max, Points).ToString("0");
         }
+        public override string ToString()
+        {
+            return Points.ToString() + "-" + Date.ToString();
+        }
     }
 }
